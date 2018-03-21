@@ -53,43 +53,43 @@ namespace Adaptive.Agrona.Concurrent.Status
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int Id()
+        public int Id()
         {
             return _counterId;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override long Get()
+        public long Get()
         {
             return _buffer.GetLong(_offset);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override long GetVolatile()
+        public long GetVolatile()
         {
             return _buffer.GetLongVolatile(_offset);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override void Set(long value)
+        public void Set(long value)
         {
             _buffer.PutLong(_offset, value);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override void SetOrdered(long value)
+        public void SetOrdered(long value)
         {
             _buffer.PutLongOrdered(_offset, value);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override void SetVolatile(long value)
+        public void SetVolatile(long value)
         {
             _buffer.PutLongVolatile(_offset, value);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool ProposeMax(long proposedValue)
+        public bool ProposeMax(long proposedValue)
         {
             var buffer = _buffer;
             var offset = _offset;
@@ -105,7 +105,7 @@ namespace Adaptive.Agrona.Concurrent.Status
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool ProposeMaxOrdered(long proposedValue)
+        public bool ProposeMaxOrdered(long proposedValue)
         {
             var buffer = _buffer;
             var offset = _offset;
@@ -120,7 +120,7 @@ namespace Adaptive.Agrona.Concurrent.Status
             return updated;
         }
 
-        public override void Dispose()
+        public void Dispose()
         {
             if (!IsClosed)
             {
